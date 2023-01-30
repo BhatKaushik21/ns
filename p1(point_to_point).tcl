@@ -8,7 +8,8 @@ $ns trace-all $ntrace
 set namfile [open prog1.nam w]
 $ns namtrace-all $namfile
 
-#Finish Procedure proc Finish {} {
+#Finish Procedure 
+proc Finish {} {
 global ns ntrace namfile
 
 #Dump all the trace data and close the files
