@@ -13,13 +13,16 @@ proc Finish {} {
 global ns ntrace namfile
 
 #Dump all the trace data and close the files
-$ns flush-trace close $ntrace close $namfile
+$ns flush-trace 
+close $ntrace 
+close $namfile
 
 #Execute the nam animation file 
 exec nam prog1.nam &
 
 #Show the number of packets dropped
-exec echo "The number of packet drops is " & exec grep -c "^d" prog1.tr &
+exec echo "The number of packet drops is " & 
+exec grep -c "^d" prog1.tr &
 exit 0
 }
 
