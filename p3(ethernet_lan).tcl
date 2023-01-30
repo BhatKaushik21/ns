@@ -19,7 +19,9 @@ set winFile1 [open WinFile1 w]
 #Finish Procedure proc Finish {} {
 #Dump all trace data and Close the files 
 global ns ntrace namfile
-$ns flush-trace close $ntrace close $namfile
+$ns flush-trace 
+close $ntrace 
+close $namfile
 
 #Execute the NAM animation file 
 exec nam prog5.nam &
@@ -30,16 +32,19 @@ exit 0
 }
 
 #Plot Window Procedure
-proc PlotWindow {tcpSource file} { global ns
+proc PlotWindow {tcpSource file} { 
+global ns
 set time 0.1
 set now [$ns now]
  
-set cwnd [$tcpSource set cwnd_] puts $file "$now $cwnd"
+set cwnd [$tcpSource set cwnd_] 
+puts $file "$now $cwnd"
 $ns at [expr $now+$time] "PlotWindow $tcpSource $file"
 }
 
 #Create 6 nodes
-for {set i 0} {$i<6} {incr i} { set n($i) [$ns node]
+for {set i 0} {$i<6} {incr i} { 
+set n($i) [$ns node]
 }
 
 #Create duplex links between the nodes
