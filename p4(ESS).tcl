@@ -12,7 +12,8 @@ $ns trace-all $tracefile
 #Open the NAM trace file
 set namfile [open p4.nam w]
 $ns namtrace-all $namfile
-$ns namtrace-all-wireless $namfile 1500 1500
+$ns namtrace-all-wireless 
+$namfile 1500 1500
 
 #===================================
 #Mobile node parameter setup
