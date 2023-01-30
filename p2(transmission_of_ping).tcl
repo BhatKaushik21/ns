@@ -16,14 +16,17 @@ proc Finish {} {
 global ns ntrace namfile
 
 #Dump all trace data and close the file
-$ns flush-trace close $ntrace close $namfile
+$ns flush-trace 
+close $ntrace 
+close $namfile
 
 #Execute the nam animation file 
 exec nam prog3.nam &
 
 #Find the number of ping packets dropped
 puts "The number of ping packets dropped are "
-exec grep "^d" prog3.tr | cut -d " " -f 5 | grep -c "ping" & exit 0
+exec grep "^d" prog3.tr | cut -d " " -f 5 | grep -c "ping" & 
+exit 0
 }
 
 #Create six nodes
@@ -61,7 +64,8 @@ $ns duplex-link-op $n(2) $n(3) queuePos 0.5
 #Generate a Huge CBR traffic between n(2) and n(4) 
 set tcp0 [new Agent/TCP]
 $tcp0 set class_ 2
-$ns attach-agent $n(2) $tcp0 set sink0 [new Agent/TCPSink]
+$ns attach-agent $n(2) $tcp0 
+set sink0 [new Agent/TCPSink]
 $ns attach-agent $n(4) $sink0
 $ns connect $tcp0 $sink0
 
