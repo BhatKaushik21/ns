@@ -5,18 +5,21 @@ set ns [new Simulator]
 $ns color 1 Blue
 $ns color 2 Red
 
-#Open trace and NAM trace file set ntrace [open prog3.tr w]
+#Open trace and NAM trace file 
+set ntrace [open prog3.tr w]
 $ns trace-all $ntrace
 set namfile [open prog3.nam w]
 $ns namtrace-all $namfile
 
-#Finish Procedure proc Finish {} {
+#Finish Procedure 
+proc Finish {} {
 global ns ntrace namfile
 
 #Dump all trace data and close the file
 $ns flush-trace close $ntrace close $namfile
 
-#Execute the nam animation file exec nam prog3.nam &
+#Execute the nam animation file 
+exec nam prog3.nam &
 
 #Find the number of ping packets dropped
 puts "The number of ping packets dropped are "
