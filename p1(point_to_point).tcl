@@ -2,7 +2,8 @@
 
 set ns [new Simulator]
 
-#Open Trace file and NAM file set ntrace [open prog1.tr w]
+#Open Trace file and NAM file 
+set ntrace [open prog1.tr w]
 $ns trace-all $ntrace
 set namfile [open prog1.nam w]
 $ns namtrace-all $namfile
@@ -13,14 +14,18 @@ global ns ntrace namfile
 #Dump all the trace data and close the files
 $ns flush-trace close $ntrace close $namfile
 
-#Execute the nam animation file exec nam prog1.nam &
+#Execute the nam animation file 
+exec nam prog1.nam &
 
 #Show the number of packets dropped
 exec echo "The number of packet drops is " & exec grep -c "^d" prog1.tr &
 exit 0
 }
 
-#Create 3 nodes set n0 [$ns node] set n1 [$ns node] set n2 [$ns node]
+#Create 3 nodes 
+set n0 [$ns node] 
+set n1 [$ns node] 
+set n2 [$ns node]
 
 #Label the nodes
 $n0 label "TCP Source"
@@ -45,7 +50,8 @@ $ns duplex-link-op $n1 $n2 orient right
 $ns queue-limit $n0 $n1 10
 $ns queue-limit $n1 $n2 10
 
-#Set up a Transport layer connection. set tcp0 [new Agent/TCP]
+#Set up a Transport layer connection. 
+set tcp0 [new Agent/TCP]
 $ns attach-agent $n0 $tcp0
 set sink0 [new Agent/TCPSink]
 $ns attach-agent $n2 $sink0
