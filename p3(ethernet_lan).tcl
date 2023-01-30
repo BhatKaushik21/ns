@@ -12,7 +12,8 @@ $ns trace-all $ntrace
 set namfile [open prog5.nam w]
 $ns namtrace-all $namfile
 
-#Use some flat file to create congestion graph windows set winFile0 [open WinFile0 w]
+#Use some flat file to create congestion graph windows 
+set winFile0 [open WinFile0 w]
 set winFile1 [open WinFile1 w]
 
 #Finish Procedure proc Finish {} {
