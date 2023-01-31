@@ -16,7 +16,8 @@ $ns namtrace-all $namfile
 set winFile0 [open WinFile0 w]
 set winFile1 [open WinFile1 w]
 
-#Finish Procedure proc Finish {} {
+#Finish Procedure 
+proc Finish {} {
 #Dump all trace data and Close the files 
 global ns ntrace namfile
 $ns flush-trace 
